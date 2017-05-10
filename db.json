@@ -1,1 +1,14 @@
-{"_default": {"1": {"username": "mako83", "password": "pUPn5Z8JI1", "proxyserver": "23.19.83.210:8800"}}}
+{
+    "_default": {
+        "1": {
+            "username": "mako83",
+            "password": "pUPn5Z8JI1",
+            "proxyserver": "23.19.83.210:8800"
+        },
+        "2": {
+            "username": "zzzg9910xb",
+            "password": "guamq4urjp",
+            "proxyserver": "199.188.72.7:8800"
+        }
+    }
+}

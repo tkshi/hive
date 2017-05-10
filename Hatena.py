@@ -1,8 +1,7 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
+
 import time
-chrome_options = Options()
+import urllib
 
 class Hatena:
     def __init__(self,username,password,proxyserver):
@@ -11,6 +10,7 @@ class Hatena:
         self.__driver = webdriver.Chrome(chrome_options=cp)
         self.__driver.implicitly_wait(1)
         self.__driver.get("https://www.hatena.ne.jp/login")
+        self.__username = username
         usernameElem = self.__driver.find_element_by_css_selector("#login-name")
         passwordElem = self.__driver.find_element_by_css_selector("#container > div > form > div > div:nth-child(2) > div > input")
         enterElem = self.__driver.find_element_by_css_selector("#option > input")
@@ -21,6 +21,6 @@ class Hatena:
     def close(self):
         self.__driver.close()
     def bookmark(self,url):
-        self.__driver.get('http://b.hatena.ne.jp/mako83/add.confirm?url={}'.format(url))
+        self.__driver.get('http://b.hatena.ne.jp/{0}/add.confirm?url={1}'.format(self.__username,urllib.quote(url)))
         saveElem = self.__driver.find_element_by_css_selector("#submit-button")
         saveElem.click()
